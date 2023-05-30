@@ -1,35 +1,30 @@
-div {
-  border: 1px solid black;
-  border-radius: 30px;
-  padding-top: 10px;
-  margin-top: 10px;
-  padding-left: 10px;
+body {
+  font-size: 16px;
+}
+.weather-app {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
 }
 h1 {
-  font-size: 14px;
-  font-weight: 600;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 10px;
-  margin-top: 10px;
+  color: #878787;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 28px;
+  margin-bottom: 0;
 }
-.search {
-  width: 300px;
-  border: 1px;
-  line-height: normal;
+ul {
+  margin: 0;
+  padding: 0;
 }
-button {
-  background-color: blue;
-  color: white;
-  border-radius: 30px;
-}
-ul,
 li {
   list-style: none;
-  position: relative;
-  font-size: 18px;
-}
-img {
-  width: 200px;
-  padding: 10px;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
+  color: (135, 135, 135);
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
 }
