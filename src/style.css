@@ -35,3 +35,8 @@ li {
   font-weight: 100;
   line-height: 19px;
 }
+.weather-temperature.units {
+  position: relative;
+  font-size: 16px;
+  top: -32px;
+}
