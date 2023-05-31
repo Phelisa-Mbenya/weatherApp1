@@ -1,4 +1,4 @@
-<!DOCTYPE html />
+<!DOCTYPE html >
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,28 +12,34 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/style.css" />
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-App">
           <div class="overview"></div>
-          <div class="col-6">Monday</div>
-          <form>
+          <form id ="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
             <input
               type="search"
-              placementholder="Type a city......"
+              placementholder="Type a city......"class="form-control" id="city-input"
               autofocus="on"
               autocomplete="off"
               id="city-input"
             />
-            <button>Search</button>
-            <h1>New York</h1>
-            <ul>
-              <li>Friday 09h50</li>
-              <li>Clear</li>
-            </ul>
+            </div>
+            <div class="col-3">
+            <input type= "submit"value="Search" class ="btn btn-primary w-100"/>
+            </div>
+            </div>
           </form>
+           <h1 id ="city"></h1>
+            <ul>
+              <li id="date"></li>
+              <li id="description"></li>
+            </ul>
           <div class="row">
             <div class="col-6">
               <div class="clearfix weather-temperature">
@@ -43,16 +49,16 @@
                   class="float-left"
                 />
                 <div class="float-left">
-                  <strong>12</strong>
+                  <strong id ="temperature"></strong>
                 <span class="units">°C|°F
                 </span>
               </div>
             </div>
             <div class="col-6">
               <ul>
-                <li>Precipitation:0%</li>
-                <li>Humidity: 93%</li>
-                <li>Wind: 3km/h</li>
+                <li>Precipitation:<span id="precipitation"></span></li>
+                <li>Humidity:<span id="humidity"></span></li>
+                <li>Wind: <span id="wind"></span></li>
               </ul>
             </div>
           </div>
