@@ -21,6 +21,31 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day}${hours}:${minutes}`;
 }
+
+function displayForecast(){
+
+let forecastElement= document.querySelector(#"forecast");
+forecastElementinnerHTML=`<div class="row">
+                <div class="col-2">
+                  <div class="weather-forecast-date">
+                  Thurs
+
+                  <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                  alt="clear"width="36"
+                />
+                <div class="weather-forecast-temperatures">
+                   <span class="weather-forecast-temperatures-max">
+                  18°</span>
+                   <span class="weather-forecast-temperatures-min">
+                  12°</span>
+                </div>
+                </div>
+                </div>
+              </div>
+            </div>
+        </div>`;
+}
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -29,6 +54,9 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
+
+  displayForecast();
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -50,3 +78,5 @@ function handleSubmit(event) {
 search("New York");
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+displayForecast();
