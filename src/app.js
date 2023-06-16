@@ -21,50 +21,58 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day}${hours}:${minutes}`;
 }
-function formatDate(timestamp){
-  let date= new Date (timeStamp* 1000);
-  let days= ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"];
-  return day[days];
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
 }
 
-function displayForecast(){
-let forecast= response.data.daily;
+function displayForecast(response) {
+  let forecast = response.data.daily;
 
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thurs", "Fri", "Sat", "Sun"];
 
-let forecastElement= document.querySelector(#"forecast");
-let days= ["Thurs","Fri","Sat","Sun"];
-
-let forecastHTML=`<div class="row">`;
-forecast.forEach(function(forecastday, index){
-forcastHTML=forecastHTML+`
-if (index < 6){
-}
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
                 <div class="col-2">
-                <div class="weather-forecast-date">{forecastDay.date}${formatDay(forecastDay.dt)}</div>${index}
+                <div class="weather-forecast-date">{forecastDay.date}${formatDay(
+                  forecastDay.dt
+                )}</div>${index}
                   <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.${forecast.weather[0].icon}.png"
+                  src="https://ssl.gstatic.com/onebox/weather/64/sunny.${
+                    forecastDay.weather[0].icon
+                  }.png"
                   alt="clear"width="42"
                 />
                 <div class="weather-forecast-temperatures">
-                   <span class="weather-forecast-temperatures-max">${math.round(forecastDay.temp.max)}°</span>
-                   <span class="weather-forecast-temperatures-min">${math.round(forecastDay.temp.min)}°</span>
+                   <span class="weather-forecast-temperatures-max">${Math.round(
+                     forecastDay.temp.max
+                   )}°</span>
+                   <span class="weather-forecast-temperatures-min">${Math.round(
+                     forecastDay.temp.min
+                   )}°</span>
                 </div>
-                </div>
-                </div>
-              </div>
-            </div>
         </div>`;
-        }
-       
-    function getForecast(coordinates){
-      console.log(coordinates);
-      let apiKey= "692f331c4fb9015b678fb92ab69c8d7f";
-      let apiUrl= `https://api.openweathermap.org/data/3.0/onecall?lat={coordinates.lat}&lon={coordinates.lon}&appid={API key}&units=metric`;
-      console.log(apiUrl);
-      axios.get(apiUrl).then(displayForecast);
     }
-    
+  });
+  forecastHTML = forecastHTML + "</div>";
+  forecastElement.innerHTML = forecastHTML;
 }
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "b95f179627c8dd37f41e1be6e3250e19";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
